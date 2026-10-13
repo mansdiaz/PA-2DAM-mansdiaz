@@ -16,35 +16,34 @@ public class Cancion {
     }
 
 
-    // GETTERS
-
     public String getTitulo() {
-
-        // COMPLETAR
-        return null;
+        return titulo;
     }
 
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 
     public String getArtista() {
-
-        // COMPLETAR
-        return null;
+        return artista;
     }
 
+    public void setArtista(String artista) {
+        this.artista = artista;
+    }
 
     public int getDuracion() {
-
-        // COMPLETAR
-        return 0;
+        return duracion;
     }
 
-
-    // toString()
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
 
     @Override
     public String toString() {
 
         // COMPLETAR
-        return "";
+        return "[" + titulo + " - " + artista + "]";
     }
 }

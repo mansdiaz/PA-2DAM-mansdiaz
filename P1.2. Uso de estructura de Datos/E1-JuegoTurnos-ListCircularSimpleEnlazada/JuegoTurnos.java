@@ -1,12 +1,13 @@
 public class JuegoTurnos {
 
-    private CListaCircularSE jugadores;
+    private CListaCircularSE lista;
     private NodoJugador jugadorActual;
 
 
     public JuegoTurnos() {
 
-        // TODO
+        this.lista = new CListaCircularSE();
+        this.jugadorActual = null;
 
     }
 
@@ -15,33 +16,55 @@ public class JuegoTurnos {
             String nombre,
             int puntuacionInicial) {
 
-        // TODO
+        lista.agregar(nombre, puntuacionInicial);
+        if (jugadorActual == null){
+            jugadorActual = lista.getPrimero();
+        }
     }
 
 
     public void eliminarJugador(
             String nombre) {
 
-        // TODO
+        if (lista.estaVacia()){
+            System.out.println("No hay ningun jugador en la partida");
+            return;
+        }
+        NodoJugador eliminar = lista.buscar(nombre);
+
+        if (eliminar != null) {
+            if (jugadorActual == eliminar) {
+                if (jugadorActual.siguiente == jugadorActual) {
+                    jugadorActual = null;
+                } else {
+                    jugadorActual = jugadorActual.siguiente;
+                }
+            }
+            lista.eliminar(nombre);
+            System.out.println("Jugador eliminado: " + nombre);
+        } else {
+            System.out.println("El jugador no existe.");
+        }
     }
 
 
     public void siguienteTurno() {
-
-        // TODO
+        if (jugadorActual != null) {
+            jugadorActual = jugadorActual.siguiente;
+        } else {
+            System.out.println("No hay jugadores para avanzar el turno");
+        }
     }
 
 
     public void mostrarJugadores() {
 
-        // TODO
+        lista.mostrar();
     }
 
 
     public NodoJugador getJugadorActual() {
 
-        // TODO
-
-        return null;
+        return jugadorActual;
     }
 }

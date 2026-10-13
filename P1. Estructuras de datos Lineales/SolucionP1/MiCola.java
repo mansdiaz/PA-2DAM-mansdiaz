@@ -1,4 +1,4 @@
-import javax.jws.Oneway;
+
 
 public class MiCola<Micola> {
 

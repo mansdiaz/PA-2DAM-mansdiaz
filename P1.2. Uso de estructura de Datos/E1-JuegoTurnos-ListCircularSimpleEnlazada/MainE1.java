@@ -1,14 +1,12 @@
 import java.util.Scanner;
 
-public class Main {
+public class MainE1 {
 
     public static void main(String[] args) {
 
-        Scanner teclado =
-                new Scanner(System.in);
+        Scanner teclado = new Scanner(System.in);
 
-        SolucionJuegoTurnos juego =
-                new SolucionJuegoTurnos();
+        JuegoTurnos juego = new JuegoTurnos();
 
         int opcion;
 
@@ -58,7 +56,7 @@ public class Main {
                             nombre,
                             puntuacion
                     );
-
+                    System.out.println("Jugador agregado correctamente.");
                     break;
 
 
@@ -92,6 +90,7 @@ public class Main {
                 case 4:
 
                     juego.siguienteTurno();
+                    System.out.println("Turno avanzado.");
 
                     break;
 
@@ -101,17 +100,16 @@ public class Main {
                     NodoJugador actual =
                             juego.getJugadorActual();
 
-                    if (actual == null) {
+                    if (actual != null) {
 
                         System.out.println(
-                                "No hay jugadores."
+                                "Turno actual: [" + actual.getNombre() + " (" + actual.getPuntuacion() + ")]"
                         );
 
                     } else {
 
                         System.out.println(
-                                "Jugador actual: "
-                                        + actual
+                                "Ningún jugador tiene el turno (lista vacía)."
                         );
                     }
 
