@@ -41,24 +41,15 @@ public class ArbolBinarioBusqueda {
         }
     }
 
+
+    // Método público busca en el árbol el elemento que se le pasa
+    // Si encuentra el dato devuelve true, si no devuelve false
     public boolean buscar(int dato) {
 
         NodoArbol actual = raiz;
+        
 
-        while (actual != null) {
 
-            if (dato == actual.dato) {
-                return true;
-            }
-
-            if (dato < actual.dato) {
-                actual = actual.izquierdo;
-            } else {
-                actual = actual.derecho;
-            }
-        }
-
-        return false;
     }
 
     // Método público que utilizaremos desde main
