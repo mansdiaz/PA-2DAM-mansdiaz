@@ -1,3 +1,5 @@
+package P1_4_Árboles_y_trazas;
+
 public class NodoArbol {
 
     int dato;

@@ -1,3 +1,5 @@
+package P1_4_Árboles_y_trazas;
+
 public class ArbolBinarioBusqueda {
 
     private NodoArbol raiz;
@@ -47,9 +49,19 @@ public class ArbolBinarioBusqueda {
     public boolean buscar(int dato) {
 
         NodoArbol actual = raiz;
-        
 
+        while (actual != null) {
 
+            if (dato == actual.dato) {
+                return true; // Encontrado
+            } else if (dato < actual.dato) {
+                actual = actual.izquierdo; // Menor: bajamos por la izquierda
+            } else {
+                actual = actual.derecho; // Mayor o igual: bajamos por la derecha
+            }
+        }
+
+        return false; // Hemos llegado a null: no está
     }
 
     // Método público que utilizaremos desde main
@@ -60,7 +72,7 @@ public class ArbolBinarioBusqueda {
 
 
     // Método recursivo
-    private void inOrden(NodoArbol nodo) {
+    public void inOrden(NodoArbol nodo) {
 
         if (nodo == null) {
             return;
@@ -74,7 +86,7 @@ public class ArbolBinarioBusqueda {
     }
 
 
-    private void preOrden(NodoArbol nodo) {
+    public void preOrden(NodoArbol nodo) {
         if (nodo == null) {
             return;
         }
@@ -85,8 +97,8 @@ public class ArbolBinarioBusqueda {
 
         preOrden(nodo.derecho);
     }
-    
-    private void postOrden(NodoArbol nodo) {
+
+    public void postOrden(NodoArbol nodo) {
         if (nodo == null) {
             return;
         }
